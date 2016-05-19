@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="input_hint">Type A Number</string>
+    <string name="calculate">Calculate</string>
+    <string name="cancel">Cancel</string>
+    <string name="threat">Faizlami koren ???</string>
+
+    <string-array name="unit_items">
+        <item>Mt to In</item>
+        <item>In to Mt</item>
+        <item>Cel. to Far.</item>
+        <item>Far. to Cel.</item>
+        <item>Kg to Lb</item>
+        <item>Lb to Kg</item>
+    </string-array>
+</resources>
