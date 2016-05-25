@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (position) {
                 case 0:
-                    output = intVal * 39.3701;
+                    output = intVal * 39.37;
                     break;
                 case 1:
                     output = intVal * 0.0254;
