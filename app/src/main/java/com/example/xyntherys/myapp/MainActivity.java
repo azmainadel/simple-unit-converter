@@ -56,30 +56,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public int conversionOutput(String number){
-        int output=0;
+    public double conversionOutput(String number){
+        double output=0;
         if (number.length() > 0) {
-            int intVal = Integer.parseInt(number);
+            double intVal = Double.parseDouble(number);
             int position = spinner.getSelectedItemPosition();
 
             switch (position) {
                 case 0:
-                    output = intVal + 10;
+                    output = intVal * 39.3701;
                     break;
                 case 1:
-                    output = intVal - 10;
+                    output = intVal * 0.0254;
                     break;
                 case 2:
-                    output = intVal * 10;
+                    output = ( ( intVal * 9 ) / 5 ) + 32;
                     break;
                 case 3:
-                    output = intVal / 10;
+                    output = ( ( intVal * 5 ) - 160 ) / 9;
                     break;
                 case 4:
-                    output = intVal % 10;
+                    output = intVal * 2.20462;
                     break;
                 case 5:
-                    output = intVal;
+                    output = intVal * 0.453592;
                     break;
                 default:
                     break;
@@ -91,13 +91,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId() == R.id.ok_button) {
             String number = editText.getText().toString();
-            int output;
+            double output;
 
             if (number.length() > 0) {
                 output = conversionOutput(number);
                 finalResult.setText(String.valueOf(output));
             } else {
-                finalResult.setText(getString(R.string.threat));
+                finalResult.setText("Cannot convert a blank input!");
             }
 
         } else if (v.getId() == R.id.clear_button) {

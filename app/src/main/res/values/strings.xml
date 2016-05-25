@@ -6,11 +6,11 @@
     <string name="threat">Faizlami koren ???</string>
 
     <string-array name="unit_items">
-        <item>Mt to In</item>
-        <item>In to Mt</item>
-        <item>Cel. to Far.</item>
-        <item>Far. to Cel.</item>
-        <item>Kg to Lb</item>
-        <item>Lb to Kg</item>
+        <item>Meters to Inches</item>
+        <item>Inches to Meters</item>
+        <item>Celsius to Farenheit</item>
+        <item>Farenheit to Celsius</item>
+        <item>Kilogram to Pounds</item>
+        <item>Pounds to Kilograms</item>
     </string-array>
 </resources>
