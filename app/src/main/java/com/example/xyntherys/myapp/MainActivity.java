@@ -1,38 +1,33 @@
 package com.example.xyntherys.myapp;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText editText;
-    private Spinner spinner;
-    private Button buttonOk;
-    private Button buttonCancel;
-    private TextView finalResult;
-    private FloatingActionButton actionButton;
+    @BindView(R.id.input_number) EditText editText;
+    @BindView(R.id.unit_chooser) Spinner spinner;
+    @BindView(R.id.ok_button) Button buttonOk;
+    @BindView(R.id.clear_button) Button buttonCancel;
+    @BindView(R.id.final_result) TextView finalResult;
+    @BindView(R.id.info_fab) FloatingActionButton actionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        this.editText = (EditText) findViewById(R.id.input_number);
-        this.spinner = (Spinner) findViewById(R.id.unit_chooser);
-        this.buttonOk = (Button) findViewById(R.id.ok_button);
-        this.buttonCancel = (Button) findViewById(R.id.clear_button);
-        this.finalResult = (TextView) findViewById(R.id.final_result);
-        this.actionButton = (FloatingActionButton) findViewById(R.id.info_fab);
+        ButterKnife.bind(this);
 
         ArrayAdapter<CharSequence> unitList = ArrayAdapter.createFromResource(this, R.array.unit_items,
                 android.R.layout.simple_spinner_item);
@@ -58,40 +53,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public String conversionOutput(String number){
         String output = "\0";
+        Converter converter = null;
         if (number.length() > 0) {
             double intVal = Double.parseDouble(number);
             int position = spinner.getSelectedItemPosition();
-
             switch (position) {
                 case 0:
-                    MeterToInch mtoi = new MeterToInch(intVal);
-                    output = mtoi.toFormattedString();
+                    converter = new MeterToInch(intVal);
                     break;
                 case 1:
-                    InchToMeter itom = new InchToMeter(intVal);
-                    output = itom.toFormattedString();
+                    converter = new InchToMeter(intVal);
                     break;
                 case 2:
-                    CelToFar ctof = new CelToFar(intVal);
-                    output = ctof.toFormattedString();
+                    converter = new CelToFar(intVal);
                     break;
                 case 3:
-                    FarToCel ftoc = new FarToCel(intVal);
-                    output = ftoc.toFormattedString();
+                    converter = new FarToCel(intVal);
                     break;
                 case 4:
-                    KgToLb ktol = new KgToLb(intVal);
-                    output = ktol.toFormattedString();
+                    converter = new KgToLb(intVal);
                     break;
                 case 5:
-                    LbToKg ltok = new LbToKg(intVal);
-                    output = ltok.toFormattedString();
+                    converter = new LbToKg(intVal);
                     break;
                 default:
                     break;
             }
         }
-        return output;
+
+        if (converter != null) {
+            return converter.toFormattedString();
+        }
+
+        return "";
     }
 
     @Override
