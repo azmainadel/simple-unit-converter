@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bindListener();
     }
 
+    //just another Comment
+
     private void bindListener() {
         if (this.buttonOk != null) {
             this.buttonOk.setOnClickListener(this);
