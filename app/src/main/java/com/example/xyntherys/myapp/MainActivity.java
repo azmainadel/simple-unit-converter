@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (position) {
                 case 0:
                     MeterToInch mtoi = new MeterToInch(intVal);
-                    output = mtoi.getResult();
+                    output = mtoi.toFormattedString();
                     break;
                 case 1:
                     InchToMeter itom = new InchToMeter(intVal);

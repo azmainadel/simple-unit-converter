@@ -1,14 +1,16 @@
 package com.example.xyntherys.myapp;
 
-public class MeterToInch {
-    private double meter;
-    private double inch;
+public class MeterToInch extends Converter {
 
     public MeterToInch(double meter){
-        inch = meter * 39.372;
+        super(meter);
+        this.fromUnit = "Meters";
+        this.toUnit = "Inches";
     }
 
-    public double getResult(){
-        return inch;
+    @Override
+    public double calculate() {
+        return this.numSource * 39.372;
     }
+
 }

@@ -1,6 +1,6 @@
 package com.example.xyntherys.myapp;
 
-public class InchToMeter {
+public class InchToMeter extends Converter{
     private double meter;
     private double inch;
 
