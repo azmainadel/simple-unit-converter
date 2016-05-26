@@ -1,14 +1,15 @@
 package com.example.xyntherys.myapp;
 
-public class CelToFar {
-    private double far;
-    private double cel;
+public class CelToFar extends Converter {
 
-    public CelToFar(double cel){
-        far = ( ( cel * 9.0 ) / 5.0 ) + 32.0;
+    public CelToFar(double cel) {
+        super(cel);
+        this.fromUnit = "Celsius";
+        this.toUnit = "Farenheit";
     }
 
-    public double getResult(){
-        return far;
+    @Override
+    public double calculate() {
+        return (this.numSource * 9.0 / 5.0) + 32.0;
     }
 }

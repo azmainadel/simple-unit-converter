@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public double conversionOutput(String number){
-        double output = 0;
+    public String conversionOutput(String number){
+        String output = "\0";
         if (number.length() > 0) {
             double intVal = Double.parseDouble(number);
             int position = spinner.getSelectedItemPosition();
@@ -69,23 +69,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 case 1:
                     InchToMeter itom = new InchToMeter(intVal);
-                    output = itom.getResult();
+                    output = itom.toFormattedString();
                     break;
                 case 2:
                     CelToFar ctof = new CelToFar(intVal);
-                    output = ctof.getResult();
+                    output = ctof.toFormattedString();
                     break;
                 case 3:
                     FarToCel ftoc = new FarToCel(intVal);
-                    output = ftoc.getResult();
+                    output = ftoc.toFormattedString();
                     break;
                 case 4:
                     KgToLb ktol = new KgToLb(intVal);
-                    output = ktol.getResult();
+                    output = ktol.toFormattedString();
                     break;
                 case 5:
                     LbToKg ltok = new LbToKg(intVal);
-                    output = ltok.getResult();
+                    output = ltok.toFormattedString();
                     break;
                 default:
                     break;
@@ -93,11 +93,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return output;
     }
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.ok_button) {
             String number = editText.getText().toString();
-            double output;
+            String output;
 
             if (number.length() > 0) {
                 output = conversionOutput(number);

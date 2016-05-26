@@ -1,14 +1,16 @@
 package com.example.xyntherys.myapp;
 
-public class LbToKg {
-    private double kg;
-    private double lb;
+public class LbToKg extends Converter{
 
     public LbToKg(double lb){
-        kg = lb * 0.453592;
+        super(lb);
+        this.fromUnit = "Pounds";
+        this.toUnit = "Kilograms";
     }
 
-    public double getResult(){
-        return kg;
+    @Override
+    public double calculate(){
+        return this.numSource * 0.453592;
     }
+
 }
