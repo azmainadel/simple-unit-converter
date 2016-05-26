@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.ok_button) Button buttonOk;
     @BindView(R.id.clear_button) Button buttonCancel;
     @BindView(R.id.final_result) TextView finalResult;
+    @BindView(R.id.history) ListView conversionHistory;
     @BindView(R.id.info_fab) FloatingActionButton actionButton;
 
     @Override
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 android.R.layout.simple_spinner_item);
         unitList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(unitList);
+
+        ArrayAdapter<String> convHistory = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,history);
+        conversionHistory.setAdapter(convHistory);
 
         bindListener();
     }
@@ -50,6 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             actionButton.setOnClickListener(this);
         }
     }
+
+    private static String[] history = {null,null,null,null};
+    private int len = 0;
+
+
 
     public String conversionOutput(String number){
         Converter converter = null;
@@ -81,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (converter != null) {
+            history[len] = converter.toFormattedString();
+            len += 1;
             return converter.toFormattedString();
         }
 
