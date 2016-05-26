@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public String conversionOutput(String number){
-        String output = "\0";
         Converter converter = null;
         if (number.length() > 0) {
             double intVal = Double.parseDouble(number);
