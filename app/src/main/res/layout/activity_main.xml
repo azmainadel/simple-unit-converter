@@ -24,30 +24,37 @@
         android:layout_marginBottom="12dp"
         android:layout_below="@+id/input_number"/>
 
-    <Button
-        android:id="@+id/ok_button"
+    <LinearLayout
+        android:id="@+id/button_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_below="@+id/unit_chooser"
-        android:text="@string/calculate"
-        android:background="@color/colorPrimary"
-        android:textColor="#ffffff"
-        android:textSize="12sp"
-        android:textStyle="bold"/>
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:id="@+id/clear_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/unit_chooser"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/ok_button"
-        android:text="Clear"
-        android:background="#fafafa"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        tools:ignore="RtlHardcoded" />
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calculate"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Clear"
+            android:background="#fafafa"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/final_result"
@@ -58,7 +65,7 @@
         android:gravity="center"
         android:textColor="@color/bright_foreground_material_light"
         android:textStyle="bold"
-        android:layout_below="@+id/ok_button"/>
+        android:layout_below="@+id/button_group"/>
 
     <ListView
         android:id="@+id/history"
