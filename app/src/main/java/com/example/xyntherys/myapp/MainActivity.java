@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        // new comments
 
         ArrayAdapter<CharSequence> unitList = ArrayAdapter.createFromResource(this, R.array.unit_items,
                 android.R.layout.simple_spinner_item);
