@@ -57,29 +57,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public double conversionOutput(String number){
-        double output=0;
+        double output = 0;
         if (number.length() > 0) {
             double intVal = Double.parseDouble(number);
             int position = spinner.getSelectedItemPosition();
 
             switch (position) {
                 case 0:
-                    output = intVal * 39.37;
+                    MeterToInch mtoi = new MeterToInch(intVal);
+                    output = mtoi.getResult();
                     break;
                 case 1:
-                    output = intVal * 0.0254;
+                    InchToMeter itom = new InchToMeter(intVal);
+                    output = itom.getResult();
                     break;
                 case 2:
-                    output = ( ( intVal * 9 ) / 5 ) + 32;
+                    CelToFar ctof = new CelToFar(intVal);
+                    output = ctof.getResult();
                     break;
                 case 3:
-                    output = ( ( intVal * 5 ) - 160 ) / 9;
+                    FarToCel ftoc = new FarToCel(intVal);
+                    output = ftoc.getResult();
                     break;
                 case 4:
-                    output = intVal * 2.20462;
+                    KgToLb ktol = new KgToLb(intVal);
+                    output = ktol.getResult();
                     break;
                 case 5:
-                    output = intVal * 0.453592;
+                    LbToKg ltok = new LbToKg(intVal);
+                    output = ltok.getResult();
                     break;
                 default:
                     break;
