@@ -5,7 +5,7 @@ public class MeterToInch {
     private double inch;
 
     public MeterToInch(double meter){
-        inch = meter * 39.37;
+        inch = meter * 39.372;
     }
 
     public double getResult(){
