@@ -56,9 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private static String[] history = {null,null,null,null};
+    private static String[] history = {" "," "," "," "};
     private int len = 0;
-
 
 
     public String conversionOutput(String number){
@@ -91,8 +90,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (converter != null) {
+            if(len == 4) len = 0;
             history[len] = converter.toFormattedString();
             len += 1;
+
             return converter.toFormattedString();
         }
 
